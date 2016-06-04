@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Broken Link Finder</title>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Broken Link Finder</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <form id="scanUrlForm" action="#">
+                    <div id="" class="input-group">
+                        <input type="text" id="scanUrlTxt" class="form-control input-lg">
+                        <span class="input-group-btn">
+                            <input type="submit" id="scanUrlBtn" class="btn btn-default input-lg" value="Scan"/>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorWrapper">
+
+    </div>
+
+    <div class="showLoading text-center" style="display:none">
+        Loading...
+    </div>
+
+    <div class="progress hideUntilSearch hideLoading" style="display:none;">
+        <div class="progress-bar" id="processingPer" style="width: 0%">
+            Processing
+            <span class="sr-only" id="processingLbl">Processing</span>
+        </div>
+        <div class="progress-bar progress-bar-success" id="successPer" style="width: 0%">
+            Success
+            <span class="sr-only" id="successLbl">Success</span>
+        </div>
+        <div class="progress-bar progress-bar-danger" id="brokenPer" style="width: 0%">
+            Broken
+            <span class="sr-only" id="brokenLbl">Broken</span>
+        </div>
+    </div>
+
+    <div class="panel panel-default hideUntilSearch hideLoading" id="scanUrlResultsPanel" style="display:none;">
+        <div id="scanUrlResults" class="panel-body row"></div>
+    </div>
+</div>
+</body>
+</html>
